@@ -1,0 +1,39 @@
+.container {
+  width: 100%;
+  padding: 10px;
+
+  @media (max-width: 1100px) {
+  }
+
+  .title {
+    font-size: 26px;
+    color: yellowgreen;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .form {
+    @media (max-width: 1100px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .inputContainer {
+    margin-bottom: 20px;
+
+    input {
+      @media (max-width: 1100px) {
+        margin-bottom: 10px;
+      }
+
+      &:last-child {
+        @media (max-width: 1100px) {
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+}

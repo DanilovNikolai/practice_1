@@ -1,0 +1,17 @@
+.myButtonActive {
+  padding: 5px 15px;
+  margin: 0px 0px 0px 20px;
+  color: #000;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: yellowgreen;
+  border: 1px solid yellowgreen;
+  border-radius: 5px;
+  cursor: pointer;
+  text-wrap: nowrap;
+  @media (max-width: 700px) {
+    padding: 3px 7px;
+    margin: 0px 0px 0px 10px;
+    font-size: 14px;
+  }
+}
