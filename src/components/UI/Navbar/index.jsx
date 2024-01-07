@@ -27,7 +27,7 @@ function Navbar() {
                 ? `${styles.NavbarLink} ${styles.active}`
                 : styles.NavbarLink
             }
-            to=""
+            to="/"
           >
             Home
           </NavLink>

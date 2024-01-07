@@ -43,10 +43,7 @@ function App() {
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         ) : (
-          <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="*" element={<PageNotFound />} />
-          </Routes>
+          <Login />
         )}
       </div>
     </AuthContext.Provider>
