@@ -1,0 +1,20 @@
+.todoModalContainer {
+  color: teal;
+  font-size: 30px;
+  font-weight: 700;
+  @media (max-width: 700px) {
+    font-size: 20px;
+  }
+}
+
+.todoForm {
+  margin: 10px 0px 0px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  input {
+    margin-bottom: 7px;
+  }
+}

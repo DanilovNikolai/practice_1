@@ -1,0 +1,11 @@
+.todoContainer {
+  margin: 70px 0px 0px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  @media (max-width: 700px) {
+    width: 90%;
+  }
+}

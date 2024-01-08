@@ -9,20 +9,19 @@ import TodoService from "../../API/TodoService";
 import getPageCount from "../../utils/pages";
 // components
 import TodosList from "../../components/TodosList";
-import TodosInput from "../../components/TodosInput";
+import TodosModal from "../../components/TodosModal";
 import TodosFilter from "../../components/TodosFilter";
 import Modal from "../../components/UI/Modal";
 import Button from "../../components/UI/Button";
 import Loader from "../../components/UI/Loader";
 import Navbar from "../../components/UI/Navbar";
-import Select from "../../components/UI/Select";
 // styles
-import "../../styles/Todos.scss";
+import styles from "./Todos.module.scss";
 
 export default function Todos() {
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState({ sort: "", search: "" });
-  const [modal, setModal] = useState(false);
+  const [isModalVisible, setModalVisible] = useState(false);
   const [totalPages, setTotalPages] = useState(0);
   const [limit, setLimit] = useState(7);
   const [page, setPage] = useState(1);
@@ -44,13 +43,9 @@ export default function Todos() {
     fetchTodos();
   }, [page, limit]);
 
-  function changePage(page) {
-    setPage(page);
-  }
-
   function handleTodoCreate(todo) {
     setTodos([...todos, todo]);
-    setModal(false);
+    setModalVisible(false);
   }
 
   function handleTodoRemove(todo) {
@@ -60,22 +55,18 @@ export default function Todos() {
   return (
     <>
       <Navbar />
-      <div className="todo-container">
-        <Button onClick={() => setModal(true)}>Создать запись</Button>
-        <Modal visible={modal} setVisible={setModal}>
-          <TodosInput onTodoCreate={handleTodoCreate} todos={todos} />
+      <div className={styles.todoContainer}>
+        <Button onClick={() => setModalVisible(true)}>
+          <span>Создать запись</span>
+        </Button>
+        <Modal visible={isModalVisible} closeModal={setModalVisible}>
+          <TodosModal onTodoCreate={handleTodoCreate} todos={todos} />
         </Modal>
-        <TodosFilter filter={filter} setFilter={setFilter} />
-        <Select
-          value={limit}
-          onChange={(value) => setLimit(value)}
-          defaultValue="Кол-во элементов на странице"
-          options={[
-            { value: 5, name: "Показывать по 5" },
-            { value: 10, name: "Показывать по 10" },
-            { value: 20, name: "Показывать по 20" },
-            { value: -1, name: "Показать все посты" },
-          ]}
+        <TodosFilter
+          filter={filter}
+          setFilter={setFilter}
+          limit={limit}
+          setLimit={setLimit}
         />
         {todosError && <h1 style={{ color: "red" }}>Произошла ошибка</h1>}
         <TodosList
@@ -86,7 +77,6 @@ export default function Todos() {
         />
         <div ref={lastElement} />
         {isTodosLoading && <Loader />}
-        {/* <Pagination totalPages={totalPages} page={page} changePage={changePage}/> */}
       </div>
     </>
   );

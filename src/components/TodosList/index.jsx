@@ -1,6 +1,10 @@
 import React from "react";
+// components
 import TodoItem from "../TodoItem";
+// react-transition-group
 import { TransitionGroup, CSSTransition } from "react-transition-group";
+// styles
+import styles from "./TodosList.module.scss";
 
 export default function TodosList({ todos, title, number, onTodoRemove }) {
   if (!todos.length) {
@@ -8,10 +12,7 @@ export default function TodosList({ todos, title, number, onTodoRemove }) {
   }
 
   return (
-    <ul
-      className="todo-list"
-      style={{ color: "yellowgreen", fontSize: "20px" }}
-    >
+    <ul className={styles.todoList}>
       {title}: {number}
       <TransitionGroup>
         {todos.map((todo) => (

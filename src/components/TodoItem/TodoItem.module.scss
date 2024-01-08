@@ -1,0 +1,39 @@
+.todoItem {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0px 0px 0px;
+  padding: 15px;
+  border-radius: 5px;
+  border: 2px solid yellowgreen;
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+  }
+
+  @media (max-width: 700px) {
+    padding: 10px;
+  }
+}
+
+.todoText {
+  text-align: left;
+  color: teal;
+  font-size: 20px;
+  font-weight: 700;
+  @media (max-width: 700px) {
+    font-size: 16px;
+  }
+}
+
+.todoDescription {
+  text-align: left;
+  font-size: 16px;
+  color: yellowgreen;
+  font-weight: normal;
+}
+
+.todoButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

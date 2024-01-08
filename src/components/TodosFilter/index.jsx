@@ -1,10 +1,13 @@
 import React from "react";
+// UI
 import Select from "../UI/Select";
 import Input from "../UI/Input";
+// styles
+import styles from "./TodosFilter.module.scss";
 
-export default function TodosFilter({ filter, setFilter }) {
+export default function TodosFilter({ filter, setFilter, limit, setLimit }) {
   return (
-    <div>
+    <div className={styles.todosFilterContainer}>
       <Select
         defaultValue="Сортировка"
         value={filter.sort}
@@ -14,6 +17,17 @@ export default function TodosFilter({ filter, setFilter }) {
         options={[
           { value: "title", name: "По названию" },
           { value: "body", name: "По описанию" },
+        ]}
+      />
+      <Select
+        value={limit}
+        onChange={(value) => setLimit(value)}
+        defaultValue="Кол-во элементов"
+        options={[
+          { value: 5, name: "Показывать по 5" },
+          { value: 10, name: "Показывать по 10" },
+          { value: 20, name: "Показывать по 20" },
+          { value: -1, name: "Показать все посты" },
         ]}
       />
       <Input

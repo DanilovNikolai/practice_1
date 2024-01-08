@@ -22,20 +22,20 @@ function Navbar() {
       <ul className={styles.NavbarList}>
         <li className={styles.NavbarItem}>
           <NavLink
-            className={(active) =>
-              active
+            className={({ isActive }) =>
+              isActive
                 ? `${styles.NavbarLink} ${styles.active}`
                 : styles.NavbarLink
             }
-            to=""
+            to="/"
           >
             Home
           </NavLink>
         </li>
         <li className={styles.NavbarItem}>
           <NavLink
-            className={(active) =>
-              active
+            className={({ isActive }) =>
+              isActive
                 ? `${styles.NavbarLink} ${styles.active}`
                 : styles.NavbarLink
             }
@@ -46,8 +46,8 @@ function Navbar() {
         </li>
         <li className={styles.NavbarItem}>
           <NavLink
-            className={(active) =>
-              active
+            className={({ isActive }) =>
+              isActive
                 ? `${styles.NavbarLink} ${styles.active}`
                 : styles.NavbarLink
             }
@@ -58,8 +58,8 @@ function Navbar() {
         </li>
         <li className={styles.NavbarItem}>
           <NavLink
-            className={(active) =>
-              active
+            className={({ isActive }) =>
+              isActive
                 ? `${styles.NavbarLink} ${styles.active}`
                 : styles.NavbarLink
             }

@@ -1,0 +1,11 @@
+.todoList {
+  margin: 30px 0px 0px 0px;
+  list-style: none;
+  color: yellowgreen;
+  font-size: 20px;
+  padding-bottom: 20px;
+
+  @media (max-width: 700px) {
+    margin: 15px 0px 0px 0px;
+  }
+}

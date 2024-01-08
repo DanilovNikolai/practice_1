@@ -3,28 +3,56 @@ import React, { useState } from "react";
 import Modal from "../../components/UI/Modal";
 import Button from "../../components/UI/Button";
 import Navbar from "../../components/UI/Navbar";
+// styles
+import styles from "./Counter.module.scss";
 
 export default function Counter() {
   const [count, setCount] = useState(0);
-  const [modal, setModal] = useState(true);
+  const [isModalVisible, setModalVisible] = useState(false);
 
   function handleButtonIncrement() {
-    setCount(count + 1);
+    setCount((prevCount) => {
+      if (prevCount >= 9) {
+        setModalVisible(true);
+      }
+      return prevCount + 1;
+    });
   }
 
   function handleButtonDecrement() {
-    setCount(count - 1);
+    setCount((prevCount) => {
+      if (prevCount <= -9) {
+        setModalVisible(true);
+      }
+      return prevCount - 1;
+    });
   }
 
   function handleButtonClear() {
     setCount(0);
+    setModalVisible(false);
+  }
+
+  function handleCloseModal() {
+    setModalVisible(false);
   }
 
   return (
     <>
       <Navbar />
-      <h1>Счетчик: {count}</h1>
-      <div>
+      <h1 className={styles.title}>
+        Счетчик:{" "}
+        <span
+          className={
+            count < 10 && count > -10
+              ? styles.countNumber
+              : `${styles.countNumber} ${styles.red}`
+          }
+        >
+          {count}
+        </span>
+      </h1>
+      <div className={styles.container}>
         <Button style={{ padding: "5px 25px" }} onClick={handleButtonIncrement}>
           +
         </Button>
@@ -32,10 +60,10 @@ export default function Counter() {
           -
         </Button>
         <Button onClick={handleButtonClear}>Clear</Button>
-        {count >= 10 && (
-          <Modal visible={modal}>
+        {isModalVisible && (
+          <Modal visible={isModalVisible} closeModal={handleCloseModal}>
             Хватит кликать!
-            <Button onClick={() => setModal(false)}>
+            <Button onClick={() => setModalVisible(false)}>
               Хорошо, больше не буду!
             </Button>
           </Modal>

@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+// UI
 import Button from "../UI/Button";
 import Input from "../UI/Input";
+// styles
+import styles from "./TodosModal.module.scss";
 
-export default function TodosInput({ onTodoCreate, todos }) {
+export default function TodosModal({ onTodoCreate, todos }) {
   const [value, setValue] = useState({ title: "", body: "" });
 
   function addNewTodo(e) {
@@ -17,9 +20,9 @@ export default function TodosInput({ onTodoCreate, todos }) {
   }
 
   return (
-    <div className="todo">
-      Добавить список дел:
-      <form className="todo-input">
+    <div className={styles.todoModalContainer}>
+      <div className={styles.title}>Добавить список дел:</div>
+      <form className={styles.todoForm}>
         <Input
           placeholder="Добавьте название"
           value={value.title}

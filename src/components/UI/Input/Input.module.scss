@@ -3,7 +3,13 @@
   color: teal;
   padding: 5px 10px 5px 10px;
   margin: 0px 0px 0px 20px;
-  width: 300px;
+  max-width: 300px;
   border: 3px solid yellowgreen;
   border-radius: 5px;
+
+  &[placeholder] {
+    @media (max-width: 700px){
+        font-size: 14px;
+    }
+  }
 }

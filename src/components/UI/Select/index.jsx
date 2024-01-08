@@ -1,4 +1,5 @@
 import React from "react";
+// styles
 import styles from "./Select.module.scss";
 
 export default function Select({ options, defaultValue, value, onChange }) {
@@ -12,7 +13,10 @@ export default function Select({ options, defaultValue, value, onChange }) {
         {defaultValue}
       </option>
       {options.map((option) => (
-        <option key={option.value} value={option.value}>
+        <option
+          key={option.value}
+          value={option.value}
+        >
           {option.name}
         </option>
       ))}
