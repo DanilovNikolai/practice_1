@@ -63,9 +63,9 @@ function Navbar() {
                 ? `${styles.NavbarLink} ${styles.active}`
                 : styles.NavbarLink
             }
-            to="/todos"
+            to="/posts"
           >
-            Todos
+            Posts
           </NavLink>
         </li>
       </ul>

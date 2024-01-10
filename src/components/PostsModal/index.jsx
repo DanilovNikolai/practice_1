@@ -3,16 +3,16 @@ import React, { useState } from "react";
 import Button from "../UI/Button";
 import Input from "../UI/Input";
 // styles
-import styles from "./TodosModal.module.scss";
+import styles from "./PostsModal.module.scss";
 
-export default function TodosModal({ onTodoCreate, todos }) {
+export default function PostsModal({ onPostCreate, posts }) {
   const [value, setValue] = useState({ title: "", body: "" });
 
-  function addNewTodo(e) {
+  function addNewPost(e) {
     e.preventDefault();
-    const newTodo = { ...value, id: todos.length + 1 };
+    const newPost = { ...value, id: posts.length + 1 };
     if (value.title && value.body !== "") {
-      onTodoCreate(newTodo);
+      onPostCreate(newPost);
       setValue({ title: "", body: "" });
     } else {
       return;
@@ -20,9 +20,9 @@ export default function TodosModal({ onTodoCreate, todos }) {
   }
 
   return (
-    <div className={styles.todoModalContainer}>
+    <div className={styles.postModalContainer}>
       <div className={styles.title}>Добавить список дел:</div>
-      <form className={styles.todoForm}>
+      <form className={styles.postForm}>
         <Input
           placeholder="Добавьте название"
           value={value.title}
@@ -33,7 +33,7 @@ export default function TodosModal({ onTodoCreate, todos }) {
           value={value.body}
           onChange={(e) => setValue({ ...value, body: e.target.value })}
         />
-        <Button onClick={addNewTodo}>Добавить</Button>
+        <Button onClick={addNewPost}>Добавить</Button>
       </form>
     </div>
   );

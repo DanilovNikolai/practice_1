@@ -3,6 +3,7 @@
   padding: 10px;
   margin-top: 60px;
   font-size: 22px;
+
   @media (max-width: 900px) {
     font-size: 18px;
   }
@@ -37,11 +38,12 @@
   border: 1px solid teal;
   border-radius: 10px;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .commentsTitle {
   color: teal;
-  font-size: 25px;
   margin-bottom: 20px;
   font-size: 30px;
 }
@@ -49,7 +51,7 @@
 .emailTitle {
   color: yellowgreen;
   @media (max-width: 700px) {
-    font-size: 18px;
+    font-size: 17px;
   }
 }
 

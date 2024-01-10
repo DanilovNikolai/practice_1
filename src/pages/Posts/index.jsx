@@ -1,82 +1,82 @@
 import React, { useState, useEffect, useRef } from "react";
 // custom hooks
-import { useTodos } from "../../hooks/useTodos";
+import { usePosts } from "../../hooks/usePosts";
 import useFetching from "../../hooks/useFetching";
 import useObserver from "../../hooks/useObserver";
 // API
-import TodoService from "../../API/TodoService";
+import PostService from "../../API/PostService";
 // utils
 import getPageCount from "../../utils/pages";
 // components
-import TodosList from "../../components/TodosList";
-import TodosModal from "../../components/TodosModal";
-import TodosFilter from "../../components/TodosFilter";
+import PostsList from "../../components/PostsList";
+import PostsModal from "../../components/PostsModal";
+import PostsFilter from "../../components/PostsFilter";
 import Modal from "../../components/UI/Modal";
 import Button from "../../components/UI/Button";
 import Loader from "../../components/UI/Loader";
 import Navbar from "../../components/UI/Navbar";
 // styles
-import styles from "./Todos.module.scss";
+import styles from "./Posts.module.scss";
 
-export default function Todos() {
-  const [todos, setTodos] = useState([]);
+export default function Posts() {
+  const [posts, setPosts] = useState([]);
   const [filter, setFilter] = useState({ sort: "", search: "" });
   const [isModalVisible, setModalVisible] = useState(false);
   const [totalPages, setTotalPages] = useState(0);
   const [limit, setLimit] = useState(7);
   const [page, setPage] = useState(1);
-  const sortedAndSearchedTodos = useTodos(todos, filter.sort, filter.search);
+  const sortedAndSearchedPosts = usePosts(posts, filter.sort, filter.search);
   const lastElement = useRef();
 
-  const [fetchTodos, isTodosLoading, todosError] = useFetching(async () => {
-    const response = await TodoService.getAll(limit, page);
-    setTodos([...todos, ...response.data]);
-    const totalTodos = response.headers["x-total-count"];
-    setTotalPages(getPageCount(totalTodos, limit));
+  const [fetchPosts, isPostsLoading, postsError] = useFetching(async () => {
+    const response = await PostService.getAll(limit, page);
+    setPosts([...posts, ...response.data]);
+    const totalPosts = response.headers["x-total-count"];
+    setTotalPages(getPageCount(totalPosts, limit));
   });
 
-  useObserver(lastElement, page < totalPages, isTodosLoading, () => {
+  useObserver(lastElement, page < totalPages, isPostsLoading, () => {
     setPage(page + 1);
   });
 
   useEffect(() => {
-    fetchTodos();
+    fetchPosts();
   }, [page, limit]);
 
-  function handleTodoCreate(todo) {
-    setTodos([...todos, todo]);
+  function handlePostCreate(post) {
+    setPosts([...posts, post]);
     setModalVisible(false);
   }
 
-  function handleTodoRemove(todo) {
-    setTodos(todos.filter((item) => item.id !== todo.id));
+  function handlePostRemove(post) {
+    setPosts(posts.filter((item) => item.id !== post.id));
   }
 
   return (
     <>
       <Navbar />
-      <div className={styles.todoContainer}>
+      <div className={styles.postContainer}>
         <Button onClick={() => setModalVisible(true)}>
           <span>Создать запись</span>
         </Button>
         <Modal visible={isModalVisible} closeModal={setModalVisible}>
-          <TodosModal onTodoCreate={handleTodoCreate} todos={todos} />
+          <PostsModal onPostCreate={handlePostCreate} posts={posts} />
         </Modal>
-        <TodosFilter
+        <PostsFilter
           filter={filter}
           setFilter={setFilter}
           limit={limit}
           setLimit={setLimit}
         />
-        {todosError && <h1 style={{ color: "red" }}>Произошла ошибка</h1>}
-        <TodosList
-          onTodoRemove={handleTodoRemove}
-          todos={sortedAndSearchedTodos}
+        {postsError && <h1 style={{ color: "red" }}>Произошла ошибка</h1>}
+        <PostsList
+          onPostRemove={handlePostRemove}
+          posts={sortedAndSearchedPosts}
           title="Список дел"
           number="1"
         />
         <div ref={lastElement} />
-        {isTodosLoading && <Loader />}
+        {isPostsLoading && <Loader />}
       </div>
     </>
   );

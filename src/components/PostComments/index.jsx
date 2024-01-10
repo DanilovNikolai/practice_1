@@ -4,36 +4,36 @@ import { useParams } from "react-router-dom";
 // custom hooks
 import useFetching from "../../hooks/useFetching";
 // API
-import TodoService from "../../API/TodoService";
+import postService from "../../API/PostService";
 // UI
 import Loader from "../UI/Loader";
 import Navbar from "../UI/Navbar";
 // styles
-import styles from "./TodoComments.module.scss";
+import styles from "./PostComments.module.scss";
 
-function TodoComments() {
+function PostComments() {
   const params = useParams();
-  const [todo, setTodo] = useState({});
+  const [post, setpost] = useState({});
   const [comments, setComments] = useState([]);
 
   // получаем объект с постом
-  const [fetchTodoById, isLoading, error] = useFetching(async () => {
-    const response = await TodoService.getByID(params.id);
+  const [fetchpostById, isLoading, error] = useFetching(async () => {
+    const response = await postService.getByID(params.id);
     console.log(response.data);
-    setTodo(response.data);
+    setpost(response.data);
   });
 
   // получаем объект с комментарием
   const [fetchComments, isCommentLoading, CommentError] = useFetching(
     async () => {
-      const response = await TodoService.getCommentsById(params.id);
+      const response = await postService.getCommentsById(params.id);
       console.log(response.data);
       setComments(response.data);
     }
   );
 
   useEffect(() => {
-    fetchTodoById();
+    fetchpostById();
     fetchComments();
   }, []);
 
@@ -45,7 +45,7 @@ function TodoComments() {
         {isLoading ? (
           <Loader />
         ) : (
-          <div className={styles.postText}>{todo.body}</div>
+          <div className={styles.postText}>{post.body}</div>
         )}
         <h2 className={styles.commentsTitle}>Comments:</h2>
         {isCommentLoading ? (
@@ -65,4 +65,4 @@ function TodoComments() {
   );
 }
 
-export default TodoComments;
+export default PostComments;

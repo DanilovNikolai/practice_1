@@ -3,11 +3,11 @@ import React from "react";
 import Select from "../UI/Select";
 import Input from "../UI/Input";
 // styles
-import styles from "./TodosFilter.module.scss";
+import styles from "./PostsFilter.module.scss";
 
-export default function TodosFilter({ filter, setFilter, limit, setLimit }) {
+export default function PostsFilter({ filter, setFilter, limit, setLimit }) {
   return (
-    <div className={styles.todosFilterContainer}>
+    <div className={styles.postsFilterContainer}>
       <Select
         defaultValue="Сортировка"
         value={filter.sort}

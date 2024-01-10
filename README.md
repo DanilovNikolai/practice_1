@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# **Web Application with Counter, Fetch API and Posts-list**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a project where I practiced learning the React library.
 
-## Available Scripts
+# **App description:**
 
-In the project directory, you can run:
+The application consists of several pages and has routing.
+Switching between pages is done by navbar.
 
-### `npm start`
+## **Login**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+At the very beginning, a page with a simulated login appears.
+The login here is formal, it does not matter what you enter in the input fields.
+After logging in, you get to the home page and the rest of the pages are available to you.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## **Counter**
 
-### `npm test`
+This is a regular counter with the function of decreasing, increasing and clearing.
+When the number "10" or "-10" is reached, a modal window appears.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## **Fetch API**
 
-### `npm run build`
+On this page, we get various data (list of users, todos and posts) using a fetch request to **_jsonplaceholder.typicode.com._**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## **Posts-list**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This page contains a list of posts from the **_jsonplaceholder.typicode.com._**
+The list can be sorted by name or description. There is a search input.
+Dynamic scrolling works when scrolling down. You can choose how many posts to upload when scrolling.
+You can create your own post with a title and description (the form appears in the modal window).
+You can delete each post, as well as view a list of comments that are also taken from **_jsonplaceholder.typicode.com._**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# **The following basic skills have been worked out:**
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Using the useState, useEffect and useContext hooks;
+2. Using localStorage;
+3. Using onClick and onSubmit events on elements;
+4. Import icons, libraries, hooks and components;
+5. Using conditional rendering using the ternary operator
+6. Working with props and using a Context;
+7. Creating and using custom hooks;
+8. Using dynamic scrolling when scrolling the page;
+9. Using Fetch requests;
+10. Routing pages;
+11. Using Modular styles;
+12. Using list sorting and search;
+13. Creating adaptations for different screens;
+14. Using the <Loader/> component when loading data;
+15. Highlighting active tabs in the navbar;

@@ -4,11 +4,11 @@ import "./styles/App.scss";
 // router-dom
 import { Route, Routes } from "react-router-dom";
 // components
-import TodoComments from "./components/TodoComments/index.jsx";
+import PostComments from "./components/PostComments/index.jsx";
 // pages
 import Login from "./pages/Login/index.jsx";
 import Counter from "./pages/Counter/index.jsx";
-import Todos from "./pages/Todos/index.jsx";
+import Posts from "./pages/Posts/index.jsx";
 import Fetch from "./pages/Fetch/index.jsx";
 import Welcome from "./pages/Welcome/index.jsx";
 import PageNotFound from "./pages/404/index.jsx";
@@ -37,8 +37,8 @@ function App() {
             <Route path="" element={<Welcome />} />
             <Route path="/counter" element={<Counter />} />
             <Route path="/fetch" element={<Fetch />} />
-            <Route path="/todos" element={<Todos />} />
-            <Route path="/todos/:id" element={<TodoComments />} />
+            <Route path="/posts" element={<Posts />} />
+            <Route path="/posts/:id" element={<PostComments />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         ) : (

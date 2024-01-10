@@ -2,6 +2,6 @@ export const routes = [
   { path: "/", element: "Welcome" },
   { path: "/counter", element: "Counter" },
   { path: "/fetch", element: "Fetch" },
-  { path: "/todos", element: "Todos" },
-  { path: "/todos/:id", element: "TodoComments" },
+  { path: "/posts", element: "Posts" },
+  { path: "/posts/:id", element: "PostComments" },
 ];

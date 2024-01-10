@@ -10,20 +10,20 @@
   color: white;
 }
 
-.todo-enter {
+.post-enter {
   transform: translateX(-350px);
 }
 
-.todo-enter-active {
+.post-enter-active {
   transform: translateX(0px);
   transition: all 500ms ease-in;
 }
 
-.todo-exit {
+.post-exit {
   opacity: 1;
 }
 
-.todo-exit-active {
+.post-exit-active {
   transform: translateX(-350px);
   transition: all 500ms ease-in;
 }
