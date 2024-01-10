@@ -9,7 +9,6 @@ Switching between pages is done by navbar.
 
 ## **Login**
 
-At the very beginning, a page with a simulated login appears.
 The login here is formal, it does not matter what you enter in the input fields.
 After logging in, you get to the home page and the rest of the pages are available to you.
 
