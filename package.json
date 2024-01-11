@@ -1,6 +1,6 @@
 {
-  "homepage": "https://danilovnikolai.github.io/react_practice",
-  "name": "react_practice",
+  "homepage": "https://danilovnikolai.github.io/react_counter-fetch-posts",
+  "name": "react_counter-fetch-posts",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
